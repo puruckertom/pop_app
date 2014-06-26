@@ -21,7 +21,7 @@ class webiceInputPage(webapp.RequestHandler):
                 'model_attributes':'Web-ICE v3.2.1'})
         html = html + template.render (templatepath + 'webice.html', {})
         html = html + template.render(templatepath + '04uberwebice_end.html', {})
-        html = html + template.render(templatepath + '05ubertext_tooltips_right.html', {})
+        html = html + template.render(templatepath + '05pop_ubertext_tooltips_right.html', {})
         html = html + template.render(templatepath + '06pop_uberfooter.html', {'links': ''})
         self.response.out.write(html)
 
