@@ -86,21 +86,21 @@ class leslie_probit_OutputPage(webapp.RequestHandler):
         html = html +  """<table width="400" border="1" style="display:none">
                           <tr>
                             <td>number of class</td>
-                            <td id="n_o_c">%s</td>
+                            <td id="n_o_c">{0!s}</td>
                           </tr>
                           <tr>
                             <td>final population</td>
-                            <td id="final">%s</td>
+                            <td id="final">{1!s}</td>
                           </tr>                          
                           <tr>
                             <td>final population no impact</td>
-                            <td id="final_no">%s</td>
+                            <td id="final_no">{2!s}</td>
                           </tr>                          
                           <tr>
                             <td>concentrations</td>
-                            <td id="conc">%s</td>
+                            <td id="conc">{3!s}</td>
                           </tr>                          
-                          </table>"""%(leslie_probit_obj.s, leslie_probit_obj.out[4], leslie_probit_obj.out_no, leslie_probit_obj.conc_out)
+                          </table>""".format(leslie_probit_obj.s, leslie_probit_obj.out[4], leslie_probit_obj.out_no, leslie_probit_obj.conc_out)
         html = html + template.render(templatepath + 'lesliedr_probit_jqplot.html', {})                         
         html = html + template.render(templatepath + '04uberoutput_end.html', {})
         html = html + template.render(templatepath + 'export.html', {})

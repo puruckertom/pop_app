@@ -102,60 +102,60 @@ class lesliedrOutputPage(webapp.RequestHandler):
                           <tr>
                             <td><div align="center">Animal name</div></td>
                             <td><div align="center">&nbsp</div></td>                            
-                            <td><div align="center">%s</div></td>
+                            <td><div align="center">{0!s}</div></td>
                           </tr>
                           <tr>
                             <td><div align="center">Chemical name</div></td>
                             <td><div align="center">&nbsp</div></td>                            
-                            <td><div align="center">%s</div></td>
+                            <td><div align="center">{1!s}</div></td>
                           </tr>
                           <tr>
                             <td><div align="center">Chemical half life</div></td>
                             <td><div align="center">days</div></td>                            
-                            <td><div align="center">%s</div></td>
+                            <td><div align="center">{2!s}</div></td>
                           </tr>
                           <tr>
                             <td><div align="center">Initial concentration</div></td>
                             <td><div align="center">&#956;g/l</div></td>                            
-                            <td><div align="center">%s</div></td>
+                            <td><div align="center">{3!s}</div></td>
                           </tr>                                                         
                           <tr>
                             <td><div align="center">Simulation duration</div></td>
                             <td><div align="center">time unit</div></td>                            
-                            <td id="sd"><div align="center">%s</div></td>
+                            <td id="sd"><div align="center">{4!s}</div></td>
                           </tr>
                           <tr>
                             <td><div align="center">Logistic model parameter (&#945;)</div></td>
                             <td><div align="center">&nbsp</div></td>                            
-                            <td><div align="center">%s</div></td>
+                            <td><div align="center">{5!s}</div></td>
                           </tr>
                           <tr>
                             <td><div align="center">Logistic model parameter (&#946;)</div></td>
                             <td><div align="center">&nbsp</div></td>                            
-                            <td><div align="center">%s</div></td>
+                            <td><div align="center">{6!s}</div></td>
                           </tr>
                           <tr>
                             <td><div align="center">Intensity of the density dependence (&#947;)</div></td>
                             <td><div align="center">&nbsp</div></td>                            
-                            <td><div align="center">%s</div></td>
+                            <td><div align="center">{7!s}</div></td>
                           </tr>                                    
                           <tr>
                             <td><div align="center">Number of age class</div></td>
                             <td><div align="center">&nbsp</div></td>                            
-                            <td id="MS"><div align="center">%s</div></td>
+                            <td id="MS"><div align="center">{8!s}</div></td>
                           </tr>
                           <tr style="display:none">
                             <td><div align="center">Leslie Matrix</div></td>
                             <td><div align="center">&nbsp</div></td>
-                            <td id="LM"><div align="center">%s</div></td>
+                            <td id="LM"><div align="center">{9!s}</div></td>
                           </tr>
                           <tr style="display:none">
                             <td><div align="center">Initial numbers</div></td>
                             <td><div align="center">&nbsp</div></td>
-                            <td id="IN"><div align="center">%s</div></td>
+                            <td id="IN"><div align="center">{10!s}</div></td>
                           </tr>                                                                                                                                                                                                              
                         </table>
-                        <p>&nbsp;</p>"""%(a_n, c_n, HL, Con, T, a, b, c, S, l_m.tolist(), n_o.tolist())
+                        <p>&nbsp;</p>""".format(a_n, c_n, HL, Con, T, a, b, c, S, l_m.tolist(), n_o.tolist())
                         
         html = html + """<table class="lm out_" border="1">"""
                                                                                         
@@ -164,17 +164,17 @@ class lesliedrOutputPage(webapp.RequestHandler):
         html = html +  """<table width="400" border="1" style="display:none">
                           <tr>
                             <td>X</td>
-                            <td id="final">%s</td>
+                            <td id="final">{0!s}</td>
                           </tr>
                           <tr>
                             <td>X_f</td>
-                            <td id="final_f">%s</td>
+                            <td id="final_f">{1!s}</td>
                           </tr>                          
                           <tr>
                             <td>X_f_no</td>
-                            <td id="final_f_no">%s</td>
+                            <td id="final_f_no">{2!s}</td>
                           </tr>                          
-                          </table>"""%(x, x_f, x_no_f)
+                          </table>""".format(x, x_f, x_no_f)
         html = html + template.render(templatepath + 'lesliedr-output-jqplot.html', {})
         html = html + template.render(templatepath + '04uberoutput_end.html', {})
         html = html + template.render(templatepath + 'export.html', {})

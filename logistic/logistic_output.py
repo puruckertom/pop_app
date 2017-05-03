@@ -56,32 +56,32 @@ class logisticOutputPage(webapp.RequestHandler):
                           <tr>
                             <td>Initial amount of individuals</td>
                             <td>&nbsp</td>                            
-                            <td>%s</td>
+                            <td>{0!s}</td>
                           </tr>                          
                           <tr>
                             <td>Carrying capacity</td>
                             <td>&nbsp</td>                            
-                            <td>%s</td>
+                            <td>{1!s}</td>
                           </tr>                          
                           <tr>
                             <td>Initial growth rate</td>
                             <td>&#37;</td>                            
-                            <td>%s</td>
+                            <td>{2!s}</td>
                           </tr>
                           <tr>
                             <td>Number of time intervals</td>
                             <td>time unit</td>                            
-                            <td>%s</td>
+                            <td>{3!s}</td>
                           </tr>                                                                                                                
                         </table>
-                        <p>&nbsp;</p>"""%(x_ini, M, rho, N)
+                        <p>&nbsp;</p>""".format(x_ini, M, rho, N)
 
         html = html +  """<table width="400" border="0" style="display: none;">
                           <tr>
                             <td>X</td>
-                            <td id="x_indi_val">%s</td>
+                            <td id="x_indi_val">{0!s}</td>
                           </tr>
-                          </table>"""%((x_out))
+                          </table>""".format(((x_out)))
         html = html + template.render(templatepath + 'logistic-output-jqplot.html', {})
         html = html + template.render(templatepath + '04uberoutput_end.html', {})
         html = html + template.render(templatepath + 'export.html', {})
