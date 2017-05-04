@@ -72,9 +72,9 @@ def gett1data(leslie_probit_obj):
 
 def gett2data(index, rate, day):
     data = { 
-        "App": ['%s' %index,  ],
+        "App": ['{0!s}'.format(index),  ],
         "Rate": [rate,],
-        "Day of Application": ['%s' %day,],
+        "Day of Application": ['{0!s}'.format(day),],
     }
     return data
 
@@ -88,7 +88,7 @@ def gett3data(leslie_probit_obj):
 
 def gett4data(index, n_o):
     data = { 
-        "Class": ['%s' %index,  ],
+        "Class": ['{0!s}'.format(index),  ],
         "Initial Population": [n_o[0],],
     }
     return data
@@ -150,9 +150,9 @@ def table_1(leslie_probit_obj):
 def table_2(leslie_probit_obj):
         # #pre-table 2
         html = """
-            <H4 class="out_2 collapsible" id="section2"><span></span>Chemical Application (n=%s)</H4>
+            <H4 class="out_2 collapsible" id="section2"><span></span>Chemical Application (n={0!s})</H4>
                 <div class="out_ container_output">
-        """ %(leslie_probit_obj.n_a)
+        """.format((leslie_probit_obj.n_a))
         #table 2
         t2data_all=[]
         for i in range(int(leslie_probit_obj.n_a)):

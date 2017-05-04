@@ -127,87 +127,87 @@ class beekhouryOutputPage(webapp.RequestHandler):
             <table border="1">
                 <tr>
                     <td>Egg Laying Rate Factor</td>
-                    <td>%s</td>
+                    <td>{0!s}</td>
                 </tr>
                 <tr>
                     <td>Alpha</td>
-                    <td>%s</td>
+                    <td>{1!s}</td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>Theta</td>
-                    <td>%s</td>
+                    <td>{2!s}</td>
                 </tr>
                 <tr>
                     <td>Daily Laying Rate</td>
-                    <td>%s</td>
+                    <td>{3!s}</td>
                 </tr>
                 <tr>
                     <td>Mortality</td>
-                    <td>%s</td>
+                    <td>{4!s}</td>
                 </tr>
                  <tr>
                     <td>Forager Mortality</td>
-                    <td>%s</td>
+                    <td>{5!s}</td>
                 </tr>
                  <tr>
                     <td>Colony Size</td>
-                    <td>%s</td>
+                    <td>{6!s}</td>
                 </tr>
                  <tr>
                     <td>Number of Days</td>
-                    <td>%s</td>
+                    <td>{7!s}</td>
                 </tr>
             </table>
         </div>
-        """ % (w, alpha, theta, l, mo, deltam, no, t)
+        """.format(w, alpha, theta, l, mo, deltam, no, t)
         html = html + """
         <div class="out_">
             <H3>Outputs for the last day of the model run</H3>
             <table border="1">
                 <tr>
                     <td>Total mortality</td>
-                    <td>%.2f</td>
+                    <td>{0:.2f}</td>
                 </tr>
                 <tr>
                     <td>Forager bees</td>
-                    <td>%.0f</td>
+                    <td>{1:.0f}</td>
                 </tr>
                 <tr>
                     <td>Hive bees</td>
-                    <td>%.0f</td>
+                    <td>{2:.0f}</td>
                 </tr>
                 <tr>
                     <td>Total bee population</td>
-                    <td>%.0f</td>
+                    <td>{3:.0f}</td>
                 </tr>
                  <tr>
                     <td>Average age onset of foraging</td>
-                    <td>%.2f</td>
+                    <td>{4:.2f}</td>
                 </tr>
                  <tr>
                     <td>Forager lifespan</td>
-                    <td>%.2f</td>
+                    <td>{5:.2f}</td>
                 </tr>
             </table>
         </div>
-        """% (m, hive(t, no, l, w, alpha, theta, mo, deltam)[0][t-2], hive(t, no, l, w, alpha, theta, mo, deltam)[1][t-2], hive(t, no, l, w, alpha, theta, mo, deltam)[2][t-2], aaof_f(precruit, t), lifespan_f(precruit, t, m, deltam))
+        """.format(m, hive(t, no, l, w, alpha, theta, mo, deltam)[0][t-2], hive(t, no, l, w, alpha, theta, mo, deltam)[1][t-2], hive(t, no, l, w, alpha, theta, mo, deltam)[2][t-2], aaof_f(precruit, t), lifespan_f(precruit, t, m, deltam))
         html = html +  """
         <table width="400" border="1", style="display:none">
             <tr>
                 <td>hive_val_1</td>
-                <td id="hive_val_1">%s</td>
+                <td id="hive_val_1">{0!s}</td>
             </tr>
             <tr>
                 <td>hive_val_2</td>
-                <td id="hive_val_2">%s</td>
+                <td id="hive_val_2">{1!s}</td>
             </tr>
             <tr>
                 <td>hive_val_3</td>
-                <td id="hive_val_3">%s</td>
+                <td id="hive_val_3">{2!s}</td>
             </tr>                                                    
         </table>
-        """%(hive(t, no, l, w, alpha, theta, mo, deltam)[0],hive(t, no, l, w, alpha, theta, mo, deltam)[1],hive(t, no, l, w, alpha, theta, mo, deltam)[2])        
+        """.format(hive(t, no, l, w, alpha, theta, mo, deltam)[0], hive(t, no, l, w, alpha, theta, mo, deltam)[1], hive(t, no, l, w, alpha, theta, mo, deltam)[2])        
         html = html + template.render(templatepath + 'beekhoury-output-jqplot.html', {})         
         html = html + template.render(templatepath + '04uberoutput_end.html', {})
         html = html + template.render(templatepath + 'export.html', {})

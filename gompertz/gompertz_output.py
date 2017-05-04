@@ -55,32 +55,32 @@ class gompertzOutputPage(webapp.RequestHandler):
                           <tr>
                             <td>Initial amount of individuals</td>
                             <td>&nbsp</td>                            
-                            <td>%s</td>
+                            <td>{0!s}</td>
                           </tr>                          
                           <tr>
                             <td>Carrying capacity</td>
                             <td>&nbsp</td>                            
-                            <td>%s</td>
+                            <td>{1!s}</td>
                           </tr>                          
                           <tr>
                             <td>Initial growth rate</td>
                             <td>&#37;</td>                            
-                            <td>%s</td>
+                            <td>{2!s}</td>
                           </tr>                        
                           <tr>
                             <td>Number of time intervals</td>
                             <td>time unit</td>                            
-                            <td>%s</td>
+                            <td>{3!s}</td>
                           </tr>                                                                                                                
                         </table>
-                        <p>&nbsp;</p>"""%(N_o, K, rho, T)
+                        <p>&nbsp;</p>""".format(N_o, K, rho, T)
 
         html = html +  """<table width="400" border="0" style="display: none">
                           <tr>
                             <td>X</td>
-                            <td id="x_indi_val">%s</td>
+                            <td id="x_indi_val">{0!s}</td>
                           </tr>
-                          </table>"""%((x_out))
+                          </table>""".format(((x_out)))
         html = html + template.render(templatepath + 'gompertz-output-jqplot.html', {})                         
         html = html + template.render(templatepath + '04uberoutput_end.html', {})
         html = html + template.render(templatepath + 'export.html', {})
