@@ -60,25 +60,25 @@ class leslieOutputPage(webapp.RequestHandler):
                           <tr>
                             <td><div align="center">Simulation duration</div></td>
                             <td><div align="center">time unit</div></td>                            
-                            <td><div align="center">%s</div></td>
+                            <td><div align="center">{0!s}</div></td>
                           </tr>
                           <tr>
                             <td><div align="center">Modeled stages</div></td>
                             <td><div align="center">&nbsp</div></td>                            
-                            <td id="MS"><div align="center">%s</div></td>
+                            <td id="MS"><div align="center">{1!s}</div></td>
                           </tr>
                           <tr style="display:none">
                             <td><div align="center">Leslie Matrix</div></td>
                             <td><div align="center">&nbsp</div></td>
-                            <td id="LM"><div align="center">%s</div></td>
+                            <td id="LM"><div align="center">{2!s}</div></td>
                           </tr>
                           <tr style="display:none">
                             <td><div align="center">Initial numbers</div></td>
                             <td><div align="center">&nbsp</div></td>
-                            <td id="IN"><div align="center">%s</div></td>
+                            <td id="IN"><div align="center">{3!s}</div></td>
                           </tr>                                                                                                                                                                                                              
                         </table>
-                        <p>&nbsp;</p>"""%(T, S, l_m.tolist(), n_o.tolist())
+                        <p>&nbsp;</p>""".format(T, S, l_m.tolist(), n_o.tolist())
                         
         html = html + """<table class="lm out_" border="1">"""
                                             
@@ -88,10 +88,10 @@ class leslieOutputPage(webapp.RequestHandler):
         html = html +  """<table width="400" border="1" style="display: none">
                           <tr>
                             <td>X</td>
-                            <td id="final">%s</td>
+                            <td id="final">{0!s}</td>
                           </tr>
                        
-                          </table>"""%(x)
+                          </table>""".format((x))
         html = html + template.render(templatepath + 'leslie-output-jqplot.html', {})                         
         html = html + template.render(templatepath + '04uberoutput_end.html', {})
         html = html + template.render(templatepath + 'export.html', {})

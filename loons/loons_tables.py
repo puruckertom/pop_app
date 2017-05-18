@@ -78,10 +78,10 @@ def gett1data(loons_obj):
 def gett3adata(loons_obj):
     data = { 
         "Class": ["Juvenile Year 1", "Juvenile Year 2", "Juvenile Year 3", "Adult"],
-        "Juvenile Year 1": ['%.2f' %loons_obj.l_m[0,0], '%.2f' %loons_obj.l_m[1,0], '%.2f' %loons_obj.l_m[2,0], '%.2f' %loons_obj.l_m[3,0]],
-        "Juvenile Year 2": ['%.2f' %loons_obj.l_m[0,1], '%.2f' %loons_obj.l_m[1,1], '%.2f' %loons_obj.l_m[2,1], '%.2f' %loons_obj.l_m[3,1]],
-        "Juvenile Year 3": ['%.2f' %loons_obj.l_m[0,2], '%.2f' %loons_obj.l_m[1,2], '%.2f' %loons_obj.l_m[2,2], '%.2f' %loons_obj.l_m[3,2]],
-        "Adult": ['%.2f' %loons_obj.l_m[0,3], '%.2f' %loons_obj.l_m[1,3], '%.2f' %loons_obj.l_m[2,3], '%.2f' %loons_obj.l_m[3,3]],
+        "Juvenile Year 1": ['{0:.2f}'.format(loons_obj.l_m[0,0]), '{0:.2f}'.format(loons_obj.l_m[1,0]), '{0:.2f}'.format(loons_obj.l_m[2,0]), '{0:.2f}'.format(loons_obj.l_m[3,0])],
+        "Juvenile Year 2": ['{0:.2f}'.format(loons_obj.l_m[0,1]), '{0:.2f}'.format(loons_obj.l_m[1,1]), '{0:.2f}'.format(loons_obj.l_m[2,1]), '{0:.2f}'.format(loons_obj.l_m[3,1])],
+        "Juvenile Year 3": ['{0:.2f}'.format(loons_obj.l_m[0,2]), '{0:.2f}'.format(loons_obj.l_m[1,2]), '{0:.2f}'.format(loons_obj.l_m[2,2]), '{0:.2f}'.format(loons_obj.l_m[3,2])],
+        "Adult": ['{0:.2f}'.format(loons_obj.l_m[0,3]), '{0:.2f}'.format(loons_obj.l_m[1,3]), '{0:.2f}'.format(loons_obj.l_m[2,3]), '{0:.2f}'.format(loons_obj.l_m[3,3])],
     }
     return data
 
@@ -89,10 +89,10 @@ def gett4data(loons_obj):
     data = { 
         "Parameter": [mark_safe('Pairing propensity for age &ge; 3'), "Chicks raised to mid-Aug per paired female", mark_safe('Annual survival for age < 3'), "Juvenile Maturation rate",
                       mark_safe('Annual survival for age &ge; 3'), "Per capita fecundity", "Probility of a juvenile growing into an adult", "Probility of a juvenile remain in the class"],
-        "Sensitivity": ['%.4f' %loons_obj.sen_b, '%.4f' % loons_obj.sen_m, '%.4f' % loons_obj.sen_sj, '%.4f' % loons_obj.sen_rj,  
-                        '%.4f' %loons_obj.sen_pa, '%.4f' % loons_obj.sen_fa, '%.4f' % loons_obj.sen_gj, '%.4f' % loons_obj.sen_pj],
-        "Elasticity": ['%.4f' %loons_obj.ela_b, '%.4f' % loons_obj.ela_m, '%.4f' % loons_obj.ela_sj, '%.4f' % loons_obj.ela_rj,  
-                       '%.4f' %loons_obj.ela_pa, '%.4f' % loons_obj.ela_fa, '%.4f' % loons_obj.ela_gj, '%.4f' % loons_obj.ela_pj],
+        "Sensitivity": ['{0:.4f}'.format(loons_obj.sen_b), '{0:.4f}'.format(loons_obj.sen_m), '{0:.4f}'.format(loons_obj.sen_sj), '{0:.4f}'.format(loons_obj.sen_rj),  
+                        '{0:.4f}'.format(loons_obj.sen_pa), '{0:.4f}'.format(loons_obj.sen_fa), '{0:.4f}'.format(loons_obj.sen_gj), '{0:.4f}'.format(loons_obj.sen_pj)],
+        "Elasticity": ['{0:.4f}'.format(loons_obj.ela_b), '{0:.4f}'.format(loons_obj.ela_m), '{0:.4f}'.format(loons_obj.ela_sj), '{0:.4f}'.format(loons_obj.ela_rj),  
+                       '{0:.4f}'.format(loons_obj.ela_pa), '{0:.4f}'.format(loons_obj.ela_fa), '{0:.4f}'.format(loons_obj.ela_gj), '{0:.4f}'.format(loons_obj.ela_pj)],
     }
     return data
 
@@ -211,7 +211,7 @@ def table_4(loons_obj):
 
 def table_5(loons_obj):
         html = """
-            <H4 class="out_4 collapsible" id="section4"><span></span>Population growth rate confidence interval (Iteration = %s)</H4>
+            <H4 class="out_4 collapsible" id="section4"><span></span>Population growth rate confidence interval (Iteration = {0!s})</H4>
                 <div class="out_ container_output">
                     <table class="out_">
                         <tr>
@@ -221,10 +221,10 @@ def table_5(loons_obj):
                         </tr>
                         <tr>
                             <td>Population growth rate (&lambda;)</td>
-                            <td>%.4f</td>
-                            <td>%.4f</td>
+                            <td>{1:.4f}</td>
+                            <td>{2:.4f}</td>
                         </tr>
                     </table>
                 </div>
-        """ % (10000, loons_obj.lamda_ci_out_025, loons_obj.lamda_ci_out_975)
+        """.format(10000, loons_obj.lamda_ci_out_025, loons_obj.lamda_ci_out_975)
         return html

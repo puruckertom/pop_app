@@ -52,9 +52,9 @@ class loons_OutputPage(webapp.RequestHandler):
                           </tr>
                           <tr>
                             <td>final population</td>
-                            <td id="final">%s</td>
+                            <td id="final">{0!s}</td>
                           </tr>                          
-                          </table>"""%(loons_obj.leslie_out)
+                          </table>""".format((loons_obj.leslie_out))
         html = html + template.render(templatepath + 'loons_jqplot.html', {})                         
 
         html = html + template.render(templatepath + '04uberoutput_end.html', {})

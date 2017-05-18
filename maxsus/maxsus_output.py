@@ -69,26 +69,26 @@ class maxsusOutputPage(webapp.RequestHandler):
                           <tr>
                             <td>Carrying capacity</td>
                             <td>&nbsp</td>                            
-                            <td>%s</td>
+                            <td>{0!s}</td>
                           </tr>                          
                           <tr>
                             <td>Initial growth rate</td>
                             <td>&#37;</td>                            
-                            <td>%s</td>
+                            <td>{1!s}</td>
                           </tr>                                                                                                                                                               
                         </table>
-                        <p>&nbsp;</p>"""%(K, rho)
+                        <p>&nbsp;</p>""".format(K, rho)
 
         html = html +  """<table width="400" border="1" style="display: none">
                           <tr >
                             <td>X</td>
-                            <td id="x_out_val">%s</td>
+                            <td id="x_out_val">{0!s}</td>
                           </tr>
                           <tr >
                             <td>H</td>
-                            <td id="H_val">%s</td>
+                            <td id="H_val">{1!s}</td>
                           </tr>                          
-                          </table>"""%(x_out,H)
+                          </table>""".format(x_out, H)
         html = html + template.render(templatepath + 'maxsus-output-jqplot.html', {})                         
         html = html + template.render(templatepath + '04uberoutput_end.html', {})
         html = html + template.render(templatepath + 'export.html', {})

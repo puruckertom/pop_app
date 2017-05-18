@@ -76,36 +76,36 @@ class yulefurryOutputPage(webapp.RequestHandler):
                           <tr>
                             <td>Initial amount of individuals</td>
                             <td>&nbsp</td>                            
-                            <td>%s</td>
+                            <td>{0!s}</td>
                           </tr>                          
                           <tr>
                             <td>Initial growth rate</td>
                             <td>&#37;</td>                            
-                            <td>%s</td>
+                            <td>{1!s}</td>
                           </tr>
                           <tr>
                             <td>Number of time intervals</td>
                             <td>time unit</td>                            
-                            <td>%s</td>
+                            <td>{2!s}</td>
                           </tr>
                           <tr>
                             <td>Number of iterations</td>
                             <td>&nbsp</td>                            
-                            <td id="ita">%s</td>
+                            <td id="ita">{3!s}</td>
                           </tr>                                                                                                                                                                                                                  
                         </table>
-                        <p>&nbsp;</p>"""%(N_o, rho, T, Ite)
+                        <p>&nbsp;</p>""".format(N_o, rho, T, Ite)
 
         html = html +  """<table width="400" border="1" style="display: none">
                           <tr>
                             <td>X</td>
-                            <td id="x">%s</td>
+                            <td id="x">{0!s}</td>
                           </tr>
                           <tr >
                             <td>x_mu</td>
-                            <td id="x_mu">%s</td>
+                            <td id="x_mu">{1!s}</td>
                           </tr>                          
-                          </table>"""%(x,x_mu)
+                          </table>""".format(x, x_mu)
         html = html + template.render(templatepath + 'yulefurry-output-jqplot.html', {})                         
         html = html + template.render(templatepath + '04uberoutput_end.html', {})
         html = html + template.render(templatepath + 'export.html', {})

@@ -291,60 +291,60 @@ class beepopOutputPage(webapp.RequestHandler):
         <tr><H3>User Inputs</H3></tr>
         <tr>
         <td>Initial colony size</td>
-        <td>%s</td>
+        <td>{0!s}</td>
         </tr>
         <tr>
         <td>Sperm obtained</td>
-        <td>%s</td>
+        <td>{1!s}</td>
         </tr>
         <tr>
         <td>Potential eggs laid</td>
-        <td>%s</td>
+        <td>{2!s}</td>
         </tr>
         <tr>
         <td>Number of foraging days</td>
-        <td>%s</td>
+        <td>{3!s}</td>
         </tr>
          <tr>
         <td>Brood cycles</td>
-        <td>%s</td>
+        <td>{4!s}</td>
         </tr>
          <tr>
         <td>Days for eggs to develop into adult worker</td>
-        <td>%s</td>
+        <td>{5!s}</td>
         </tr>
          <tr>
         <td>Days for eggs to develop into adult drones</td>
-        <td>%s</td>
+        <td>{6!s}</td>
         </tr>
         <tr>
         <td>Days for inside worker bees to develop into foragers</td>
-        <td>%s</td>
+        <td>{7!s}</td>
         </tr>
         <tr>
         <td>Number of foragers until death</td>
-        <td>%s</td>
+        <td>{8!s}</td>
         </tr>
         <tr>
         </table>
-        """ % (initial_colony_size, sperm_obtained, e_max, number_of_forages, brood_cycles, days_to_adult_worker, days_to_adult_drones, days_from_adult_to_forager, number_of_forages)
+        """.format(initial_colony_size, sperm_obtained, e_max, number_of_forages, brood_cycles, days_to_adult_worker, days_to_adult_drones, days_from_adult_to_forager, number_of_forages)
         html = html + """
         <table border="1">
         <tr><H3>Outputs for the last day of the model run</H3></tr>
         <tr>
         <td>Total mortality</td>
-        <td>%.2f</td>
+        <td>{0:.2f}</td>
         </tr>
         <tr>
         <td>Forager bees</td>
-        <td>%.2f</td>
+        <td>{1:.2f}</td>
         </tr>
         <tr>
         <td>Hive bees</td>
-        <td>%.2f</td>
+        <td>{2:.2f}</td>
         </tr>
         </table>
-        """ % (Et_f(e_max, days_to_adult_drones, sperm_obtained, days_to_adult_worker, days_from_adult_to_forager, number_of_forages, initial_colony_size)[4], Et_f(e_max, days_to_adult_drones, sperm_obtained, days_to_adult_worker, days_from_adult_to_forager, number_of_forages, initial_colony_size)[5], Et_f(e_max, days_to_adult_drones, sperm_obtained, days_to_adult_worker, days_from_adult_to_forager, number_of_forages, initial_colony_size)[6])
+        """.format(Et_f(e_max, days_to_adult_drones, sperm_obtained, days_to_adult_worker, days_from_adult_to_forager, number_of_forages, initial_colony_size)[4], Et_f(e_max, days_to_adult_drones, sperm_obtained, days_to_adult_worker, days_from_adult_to_forager, number_of_forages, initial_colony_size)[5], Et_f(e_max, days_to_adult_drones, sperm_obtained, days_to_adult_worker, days_from_adult_to_forager, number_of_forages, initial_colony_size)[6])
 #        html = html +  """<table width="400" border="1", style="display:none">
 #                          <tr>
 #                            <td>hive_val_1</td>

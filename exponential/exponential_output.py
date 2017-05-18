@@ -53,27 +53,27 @@ class exponentialOutputPage(webapp.RequestHandler):
                           <tr>
                             <td>Initial amount of individuals</td>
                             <td>&nbsp</td>                            
-                            <td>%s</td>
+                            <td>{0!s}</td>
                           </tr>                                                  
                           <tr>
                             <td>Initial growth rate</td>
                             <td>&#37;</td>                            
-                            <td>%s</td>
+                            <td>{1!s}</td>
                           </tr>                           
                           <tr>
                             <td>Number of time intervals</td>
                             <td>time unit</td>                            
-                            <td>%s</td>
+                            <td>{2!s}</td>
                           </tr>                                                                                                                
                         </table>
-                        <p>&nbsp;</p>"""%(N_o, rho, T)
+                        <p>&nbsp;</p>""".format(N_o, rho, T)
 
         html = html +  """<table width="400" border="0" style="display: none">
                           <tr>
                             <td>X</td>
-                            <td id="x_indi_val">%s</td>
+                            <td id="x_indi_val">{0!s}</td>
                           </tr>
-                          </table>"""%((x_out))
+                          </table>""".format(((x_out)))
         html = html +   """<div id="chart1" style="margin-top:20px; margin-left:20px; width:650px; height:400px;"></div>"""
 
         html = html + template.render(templatepath + '04uberoutput_end.html', {})

@@ -72,9 +72,9 @@ def gett1data(leslie_probit_obj):
 
 def gett2data(index, rate, day):
     data = { 
-        "App": ['%s' %index,  ],
+        "App": ['{0!s}'.format(index),  ],
         "Rate": [rate,],
-        "Day of Application": ['%s' %day,],
+        "Day of Application": ['{0!s}'.format(day),],
     }
     return data
 
@@ -88,7 +88,7 @@ def gett3data(leslie_probit_obj):
 
 def gett4data(index, n_o):
     data = { 
-        "Class": ['%s' %index,  ],
+        "Class": ['{0!s}'.format(index),  ],
         "Initial Population": [n_o[0],],
     }
     return data
@@ -150,9 +150,9 @@ def table_1(leslie_probit_obj):
 def table_2(leslie_probit_obj):
         # #pre-table 2
         html = """
-            <H4 class="out_2 collapsible" id="section2"><span></span>Chemical Application (n=%s)</H4>
+            <H4 class="out_2 collapsible" id="section2"><span></span>Chemical Application (n={0!s})</H4>
                 <div class="out_ container_output">
-        """ %(leslie_probit_obj.n_a)
+        """.format((leslie_probit_obj.n_a))
         #table 2
         t2data_all=[]
         for i in range(int(leslie_probit_obj.n_a)):
@@ -160,7 +160,7 @@ def table_2(leslie_probit_obj):
             day_temp=leslie_probit_obj.day_out[i]
             t2data_temp=gett2data(i+1, rate_temp, day_temp)
             t2data_all.append(t2data_temp)
-        t2data = dict([(k,[t2data_ind[k][0] for t2data_ind in t2data_all]) for k in t2data_temp])
+        t2data = {k: [t2data_ind[k][0] for t2data_ind in t2data_all] for k in t2data_temp}
         t2rows = gethtmlrowsfromcols(t2data,pvaheadings[0])
         html = html + tmpl.render(Context(dict(data=t2rows, headings=pvaheadings[1])))
         html = html + """
@@ -197,7 +197,7 @@ def table_4(leslie_probit_obj):
             # day_temp=leslie_probit_obj.day_out[i]
             t4data_temp=gett4data(i+1, n_o_temp)
             t4data_all.append(t4data_temp)
-        t4data = dict([(k,[t4data_ind[k][0] for t4data_ind in t4data_all]) for k in t4data_temp])
+        t4data = {k: [t4data_ind[k][0] for t4data_ind in t4data_all] for k in t4data_temp}
         t4rows = gethtmlrowsfromcols(t4data, pva2headings)
         html = html + tmpl.render(Context(dict(data=t4rows, headings=pva2headings)))
         html = html + """
